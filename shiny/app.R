@@ -11,7 +11,10 @@ data(iris)
 library(shiny)
 library(umap)
 library(plotly)
-library(umapviz)
+#library(umapviz)
+#source(umapviz::plot.iris)
+
+
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
@@ -60,7 +63,6 @@ server <- function(input, output) {
        custom.config$min_dist=input$mindist #0.1
        custom.config$n_neighbors=input$neighbors #15
        custom.config$metric=input$distance #euclidean
-       library(umap)
        iris.umap = umap(iris.data,custom.config)
        plot.iris(iris.umap, iris.labels)
        

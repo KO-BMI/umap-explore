@@ -1,28 +1,16 @@
 Package: umapviz
-Type: Package
-Title: UMAP Parameter Exploration
-Description: GUI to explore high-dimensional reduction analysis with sample datasets 
-Version: 0.1
-Date: 2019-12-10
-Authors@R: c(person("Ki", "Oh",
-                    role = c("aut", "cre"), 
-                    email = "ki.oh309@gmail.com")
-             )
-Maintainer: Ki Oh <ki.oh309@gmail.com>
-URL: https://github.com/KO-BMI/umap-viz, https://codetoclinic.com
-BugReports: https://github.com/KO-BMI/umap-viz/issues
-Depends: R (>= 3.4.0), foreach, rvest, xml2
-License: Private
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "First",
+           family = "Last",
+           role = c("aut", "cre"),
+           email = "first.last@example.com",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: What the package does (one paragraph).
+License: MIT License
 Encoding: UTF-8
 LazyData: true
-Imports: magrittr,
-  jsonlite,
-  dplyr,
-  lubridate,
-  curl,
-  utils,
-  parallel,
-  stats,
-  doSNOW,
-  tidyr
 RoxygenNote: 6.1.1
+Imports: 
+    umapviz

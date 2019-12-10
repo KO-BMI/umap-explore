@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot.iris.R
 \name{plot.iris}
 \alias{plot.iris}
-\title{plot.iris}
+\title{Umap Plot}
 \usage{
 \method{plot}{iris}(x, labels,
   main = "A UMAP visualization of the Iris dataset",
@@ -10,12 +10,6 @@
   pch = 19, add = FALSE, legend.suffix = "", cex.main = 1,
   cex.legend = 1)
 }
-\value{
-A character vector
-}
 \description{
-A function to plot umap figures with iris data.
-}
-\examples{
-plot.iris()
+Umap Plot
 }

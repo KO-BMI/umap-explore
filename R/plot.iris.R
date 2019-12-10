@@ -1,12 +1,6 @@
-#' plot.iris
-#' 
-#' A function to plot umap figures with iris data.
+#' Umap Plot
 #'
-#' @return A character vector
-#' @export
-#'
-#' @examples
-#' plot.iris()
+#' @export plot.iris
 
 plot.iris<-function(x, labels,
                     main="A UMAP visualization of the Iris dataset",
