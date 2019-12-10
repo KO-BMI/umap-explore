@@ -1,0 +1,12 @@
+name: umap-viz
+title: umap-viz
+username:
+account: codetoclinic
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1584926
+bundleId: 2655663
+url: https://codetoclinic.shinyapps.io/umap-viz/
+when: 1575986481.50042
+asMultiple: FALSE
+asStatic: FALSE

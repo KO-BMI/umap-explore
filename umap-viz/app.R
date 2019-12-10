@@ -11,6 +11,7 @@ data(iris)
 library(shiny)
 library(umap)
 library(plotly)
+library(umapviz)
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
