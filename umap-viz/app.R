@@ -10,6 +10,7 @@ library(datasets)
 data(iris)
 library(shiny)
 library(umap)
+library(plotly)
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
@@ -23,24 +24,25 @@ ui <- fluidPage(
             sliderInput("dims",
                         "Number of PCA Dims",
                         min = 1,
-                        max = 50,
-                        value = 10),
+                        max = 30,
+                        value = 2),
             sliderInput("neighbors",
                         "n-Neighbors",
                         min = 5,
                         max = 50,
-                        value = 30),
+                        value = 15),
             sliderInput("mindist",
                         "Minimum Distance",
                         min = 0.001,
                         max = 0.5,
-                        value = 0.2),
-              radioButtons(inputId = "distance", label="Distance", choices = c("Euclidean","Cosine","Manhattan"), selected="Euclidean")
+                        value = 0.1),
+              radioButtons(inputId = "distance", label="Distance", choices = c("euclidean","cosine","manhattan"), selected="euclidean")
         ),
 
         # Show a plot of the generated distribution
         mainPanel(
            plotOutput("distPlot")
+          # plotOutput("scatterPlot")
         )
     )
 )
@@ -52,11 +54,22 @@ server <- function(input, output) {
         iris<-(datasets::iris)
        iris.data = iris[, grep("Sepal|Petal", colnames(iris))]
        iris.labels = iris[, "Species"]
-       
+       custom.config = umap.defaults 
+       custom.config$n_components=input$dims #2
+       custom.config$min_dist=input$mindist #0.1
+       custom.config$n_neighbors=input$neighbors #15
+       custom.config$metric=input$distance #euclidean
        library(umap)
-       iris.umap = umap(iris.data)
+       iris.umap = umap(iris.data,custom.config)
        plot.iris(iris.umap, iris.labels)
        
+    })
+    output$scatterPlot <- renderPlot({
+        iris<-(datasets::iris)
+        ggplot(iris, aes(x = Petal.Length, y = Sepal.Length, colour = Species)) + 
+            geom_point() +
+            ggtitle('Iris Species by Petal and Sepal Length')
+        
     })
 }
 
